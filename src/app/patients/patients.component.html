@@ -1,4 +1,5 @@
 <div class="container mt-2">
+  <ng-container *ngIf="patients| async as listPatients; else failureOrloading">
     <div class="card">
       <div class="card-header">Patients</div>
       <div class="card-body">
@@ -9,7 +10,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let p of patients" >
+          <tr *ngFor="let p of patients | async" >
             <td>{{p.id}}</td>
             <td>{{p.firstName}}</td>
             <td>{{p.lastName}}</td>
@@ -22,4 +23,15 @@
         </table>
       </div>
     </div>
+  </ng-container>
+  <ng-template  #failureOrloading>
+    <ng-container *ngIf="errorMessage";else loading>
+      <div class ="text-danger">
+        {{errorMessage}}
+      </div>
+    </ng-container>
+    <ng-template #loading>
+      Loading ....
+    </ng-template>
+  </ng-template>
 </div>
