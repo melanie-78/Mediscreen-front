@@ -1,0 +1,25 @@
+<div class="container mt-2">
+    <div class="card">
+      <div class="card-header">Patients</div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>ID</th><th>Firstname</th><th>Lastname</th><th>Birthdate</th><th>Gender</th><th>Address</th><th>Number</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let p of patients" >
+            <td>{{p.id}}</td>
+            <td>{{p.firstName}}</td>
+            <td>{{p.lastName}}</td>
+            <td>{{p.birthdate}}</td>
+            <td>{{p.gender}}</td>
+            <td>{{p.address}}</td>
+            <td>{{p.number}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
