@@ -17,5 +17,11 @@ export class PatientService {
   public searchPatient(keyword : string):Observable<Array<Patient>>{
     return this.http.get<Array<Patient>>(environment.backendHost+"/patients/search?keyword="+keyword);
   }
+  public savePatient(patient : Patient):Observable<Patient>{
+    return this.http.post<Patient>(environment.backendHost+"/patient/add",patient);
+  }
+  public deletePatient(id : number){
+    return this.http.delete(environment.backendHost+"/patient/delete/"+id);
+  }
 
 }

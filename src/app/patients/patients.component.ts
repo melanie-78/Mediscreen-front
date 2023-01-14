@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {PatientService} from "../services/patient.service";
-import {catchError, Observable, throwError} from "rxjs";
+import {catchError, map, Observable, throwError} from "rxjs";
 import {Patient} from "../model/patient.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
@@ -33,5 +33,24 @@ export class PatientsComponent implements OnInit {
         return throwError(err);
       })
     );
+  }
+
+  handleDeletePatient(p : Patient) {
+    let conf = confirm("Are you sure?");
+    if(!conf) return;
+    this.patientService.deletePatient(p.id).subscribe({
+      next: data=>{
+        this.patients= this.patients.pipe(
+          map(data=>{
+            let index=data.indexOf(p);
+            data.slice(index,1)
+            return data;
+          })
+        );
+      },
+      error: err=>{
+        console.log(err);
+      }
+    })
   }
 }

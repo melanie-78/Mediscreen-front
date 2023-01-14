@@ -7,12 +7,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PatientsComponent } from './patients/patients.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import { NewPatientComponent } from './new-patient/new-patient.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    PatientsComponent
+    PatientsComponent,
+    NewPatientComponent
   ],
   imports: [
     BrowserModule,

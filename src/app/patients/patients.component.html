@@ -23,10 +23,15 @@
             <td>{{p.id}}</td>
             <td>{{p.firstName}}</td>
             <td>{{p.lastName}}</td>
-            <td>{{p.birthdate}}</td>
-            <td>{{p.gender}}</td>
+            <td>{{p.birthDate}}</td>
+            <td>{{p.type}}</td>
             <td>{{p.address}}</td>
             <td>{{p.number}}</td>
+            <td>
+              <button (click)="handleDeletePatient(p)" class="btn btn-danger">
+              <i class="bi bi-trash"></i>
+              </button>
+            </td>
           </tr>
           </tbody>
         </table>

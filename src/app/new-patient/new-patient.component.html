@@ -1,0 +1,42 @@
+
+<div class="container">
+  <div class="card col-md-6 offset-3 mt-2">
+    <div class="card-header">New Patient</div>
+    <div class="card-body">
+      <form [formGroup]="newPatientFormGroup" (ngSubmit)="handleSavePatient()">
+        <div class="mb-3">
+          <label class="form-label">Firstname:</label>
+          <input type="text" formControlName="firstName" class="form-control">
+          <span class= "text-danger"
+                *ngIf="newPatientFormGroup.controls['firstName'].touched
+                && newPatientFormGroup.controls['firstName'].errors
+                && newPatientFormGroup.controls['firstName'].errors!['required']">
+            Name is required
+          </span>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Lastname:</label>
+          <input type="text" formControlName="lastName" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Birthdate:</label>
+          <input type="date" formControlName="birthDate" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Gender:</label>
+          <input type="text" formControlName="type" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Address:</label>
+          <input type="text" formControlName="address" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Number:</label>
+          <input type="text" formControlName="number" class="form-control">
+        </div>
+        <button [disabled]="!newPatientFormGroup" class="btn btn-success">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+
