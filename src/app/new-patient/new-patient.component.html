@@ -11,20 +11,38 @@
                 *ngIf="newPatientFormGroup.controls['firstName'].touched
                 && newPatientFormGroup.controls['firstName'].errors
                 && newPatientFormGroup.controls['firstName'].errors!['required']">
-            Name is required
+            Firstname is required
           </span>
         </div>
         <div class="mb-3">
           <label class="form-label">Lastname:</label>
           <input type="text" formControlName="lastName" class="form-control">
+          <span class= "text-danger"
+                *ngIf="newPatientFormGroup.controls['lastName'].touched
+                && newPatientFormGroup.controls['lastName'].errors
+                && newPatientFormGroup.controls['lastName'].errors!['required']">
+            Lastname is required
+          </span>
         </div>
         <div class="mb-3">
           <label class="form-label">Birthdate:</label>
           <input type="date" formControlName="birthDate" class="form-control">
+          <span class= "text-danger"
+                *ngIf="newPatientFormGroup.controls['birthDate'].touched
+                && newPatientFormGroup.controls['birthDate'].errors
+                && newPatientFormGroup.controls['birthDate'].errors!['required']">
+            Birthdate is required
+          </span>
         </div>
         <div class="mb-3">
           <label class="form-label">Gender:</label>
           <input type="text" formControlName="type" class="form-control">
+          <span class= "text-danger"
+                *ngIf="newPatientFormGroup.controls['type'].touched
+                && newPatientFormGroup.controls['type'].errors
+                && newPatientFormGroup.controls['type'].errors!['required']">
+            Gender is required
+          </span>
         </div>
         <div class="mb-3">
           <label class="form-label">Address:</label>
