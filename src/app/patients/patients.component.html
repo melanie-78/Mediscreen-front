@@ -28,8 +28,13 @@
             <td>{{p.address}}</td>
             <td>{{p.number}}</td>
             <td>
+              <button (click)="handleUpdatePatient(p)" class="btn btn-success">
+              <i class="bi bi-file"></i>
+              </button>
+            </td>
+            <td>
               <button (click)="handleDeletePatient(p)" class="btn btn-danger">
-              <i class="bi bi-trash"></i>
+                <i class="bi bi-trash"></i>
               </button>
             </td>
           </tr>

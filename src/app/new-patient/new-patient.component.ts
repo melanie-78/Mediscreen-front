@@ -28,7 +28,6 @@ export class NewPatientComponent implements OnInit{
 
   handleSavePatient() {
     let patient: Patient = this.newPatientFormGroup.value;
-    console.log("***************** patient:", patient);
     this.patientService.savePatient(patient).subscribe({
       next: data => {
         alert("Patient has been successfully saved");

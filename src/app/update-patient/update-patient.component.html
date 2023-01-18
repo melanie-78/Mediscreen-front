@@ -3,14 +3,18 @@
   <div class="card col-md-6 offset-3 mt-2">
     <div class="card-header">New Patient</div>
     <div class="card-body">
-      <form [formGroup]="newPatientFormGroup" (ngSubmit)="handleSavePatient()">
+      <form [formGroup]="updatePatientFormGroup" (ngSubmit)="handleEditPatient()">
+        <div class="mb-3">
+          <label class="form-label">ID:</label>
+          <label class="form-label">{{patient.id}}</label>
+        </div>
         <div class="mb-3">
           <label class="form-label">Firstname:</label>
           <input type="text" formControlName="firstName" class="form-control">
           <span class= "text-danger"
-                *ngIf="newPatientFormGroup.controls['firstName'].touched
-                && newPatientFormGroup.controls['firstName'].errors
-                && newPatientFormGroup.controls['firstName'].errors!['required']">
+                *ngIf="updatePatientFormGroup.controls['firstName'].touched
+                && updatePatientFormGroup.controls['firstName'].errors
+                && updatePatientFormGroup.controls['firstName'].errors!['required']">
             Firstname is required
           </span>
         </div>
@@ -18,19 +22,19 @@
           <label class="form-label">Lastname:</label>
           <input type="text" formControlName="lastName" class="form-control">
           <span class= "text-danger"
-                *ngIf="newPatientFormGroup.controls['lastName'].touched
-                && newPatientFormGroup.controls['lastName'].errors
-                && newPatientFormGroup.controls['lastName'].errors!['required']">
+                *ngIf="updatePatientFormGroup.controls['lastName'].touched
+                && updatePatientFormGroup.controls['lastName'].errors
+                && updatePatientFormGroup.controls['lastName'].errors!['required']">
             Lastname is required
           </span>
         </div>
         <div class="mb-3">
           <label class="form-label">Birthdate:</label>
-          <input type="date" formControlName="birthDate" class="form-control">
+          <input type="date | date: 'yyyy/MM/dd'" formControlName="birthDate" class="form-control">
           <span class= "text-danger"
-                *ngIf="newPatientFormGroup.controls['birthDate'].touched
-                && newPatientFormGroup.controls['birthDate'].errors
-                && newPatientFormGroup.controls['birthDate'].errors!['required']">
+                *ngIf="updatePatientFormGroup.controls['birthDate'].touched
+                && updatePatientFormGroup.controls['birthDate'].errors
+                && updatePatientFormGroup.controls['birthDate'].errors!['required']">
             Birthdate is required
           </span>
         </div>
@@ -38,9 +42,9 @@
           <label class="form-label">Gender:</label>
           <input type="text" formControlName="type" class="form-control">
           <span class= "text-danger"
-                *ngIf="newPatientFormGroup.controls['type'].touched
-                && newPatientFormGroup.controls['type'].errors
-                && newPatientFormGroup.controls['type'].errors!['required']">
+                *ngIf="updatePatientFormGroup.controls['type'].touched
+                && updatePatientFormGroup.controls['type'].errors
+                && updatePatientFormGroup.controls['type'].errors!['required']">
             Gender is required
           </span>
         </div>
@@ -52,9 +56,10 @@
           <label class="form-label">Number:</label>
           <input type="text" formControlName="number" class="form-control">
         </div>
-        <button [disabled]="!newPatientFormGroup.valid" class="btn btn-success">Save</button>
+        <button [disabled]="!updatePatientFormGroup.valid" class="btn btn-success">Save</button>
       </form>
     </div>
   </div>
 </div>
+
 

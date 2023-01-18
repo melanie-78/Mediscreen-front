@@ -23,5 +23,10 @@ export class PatientService {
   public deletePatient(id : number){
     return this.http.delete(environment.backendHost+"/patient/delete/"+id);
   }
-
+  public getPatient(id : number):Observable<Patient>{
+    return this.http.get<Patient>(environment.backendHost+"/patient/"+id);
+  }
+ public updatePatient(id : number, p : Patient):Observable<Patient>{
+    return this.http.put<Patient>(environment.backendHost+"/patient/update/"+id, p);
+  }
 }

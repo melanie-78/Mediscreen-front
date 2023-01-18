@@ -4,6 +4,7 @@ import {PatientService} from "../services/patient.service";
 import {catchError, map, Observable, throwError} from "rxjs";
 import {Patient} from "../model/patient.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-patients',
@@ -12,45 +13,59 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class PatientsComponent implements OnInit {
   patients!: Observable<Array<Patient>>;
-  errorMessage! : string;
-  searchFormGroup! : FormGroup;
+  errorMessage!: string;
+  searchFormGroup!: FormGroup;
+  patient!: Observable<Patient>;
 
-  constructor(private patientService: PatientService, private fb: FormBuilder) {
+  constructor(private patientService: PatientService, private fb: FormBuilder, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.searchFormGroup= this.fb.group({
-      keyword : this.fb.control("")
+    this.searchFormGroup = this.fb.group({
+      keyword: this.fb.control("")
     })
     this.handleSearchPatient();
   }
 
   handleSearchPatient() {
-    let kw=this.searchFormGroup?.value.keyword;
-    this.patients=this.patientService.searchPatient(kw).pipe(
+    let kw = this.searchFormGroup.value.keyword;
+    this.patients = this.patientService.searchPatient(kw).pipe(
       catchError(err => {
-        this.errorMessage=err.message;
+        this.errorMessage = err.message;
         return throwError(err);
       })
     );
   }
 
-  handleDeletePatient(p : Patient) {
+  handleDeletePatient(p: Patient) {
     let conf = confirm("Are you sure?");
-    if(!conf) return;
+    if (!conf) return;
     this.patientService.deletePatient(p.id).subscribe({
-      next: data=>{
-        this.patients= this.patients.pipe(
-          map(data=>{
-            let index=data.indexOf(p);
-            data.slice(index,1)
+      next: data => {
+        this.patients = this.patients.pipe(
+          map(data => {
+            let index = data.indexOf(p);
+            data.slice(index, 1)
             return data;
           })
         );
       },
-      error: err=>{
+      error: err => {
         console.log(err);
       }
     })
+  }
+
+  handleUpdatePatient(p: Patient) {
+
+    //this.patientService.getPatient(p.id).subscribe({
+    //  next: data => {
+    this.router.navigateByUrl("/update-patient/" + p.id);
+    //},
+    //error: err => {
+    //console.log(err);
+    // }
+    //});
+    //}
   }
 }
