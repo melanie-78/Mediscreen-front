@@ -28,6 +28,11 @@
             <td>{{p.address}}</td>
             <td>{{p.number}}</td>
             <td>
+              <button (click)="handleConsultNotes(p)" class="btn btn-success">
+                Notes
+              </button>
+            </td>
+            <td>
               <button (click)="handleUpdatePatient(p)" class="btn btn-success">
               <i class="bi bi-file"></i>
               </button>

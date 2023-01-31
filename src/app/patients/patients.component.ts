@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {PatientService} from "../services/patient.service";
 import {catchError, map, Observable, throwError} from "rxjs";
 import {Patient} from "../model/patient.model";
@@ -57,15 +56,10 @@ export class PatientsComponent implements OnInit {
   }
 
   handleUpdatePatient(p: Patient) {
-
-    //this.patientService.getPatient(p.id).subscribe({
-    //  next: data => {
     this.router.navigateByUrl("/update-patient/" + p.id);
-    //},
-    //error: err => {
-    //console.log(err);
-    // }
-    //});
-    //}
+  }
+
+  handleConsultNotes(p: Patient) {
+    this.router.navigateByUrl("/notes/" + p.id);
   }
 }

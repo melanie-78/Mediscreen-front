@@ -1,0 +1,31 @@
+
+<div class="container">
+  <div class="card col-md-6 offset-3 mt-2">
+    <div class="card-header">Update Note</div>
+    <div class="card-body">
+      <form [formGroup]="updateNoteFormGroup" (ngSubmit)="handleSaveNote()">
+        <div class="mb-3">
+          <label class="form-label">ID:</label>
+          <label class="form-label">{{note.id}}</label>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">PatID:</label>
+          <label class="form-label">{{note.patId}}</label>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Name:</label>
+          <label class="form-label">{{note.patName}}</label>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Observation:</label>
+          <input type="text" formControlName="observation" class="form-control">
+        </div>
+
+        <button class="btn btn-success">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+

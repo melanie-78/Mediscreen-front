@@ -9,6 +9,9 @@ import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import { NewPatientComponent } from './new-patient/new-patient.component';
 import { UpdatePatientComponent } from './update-patient/update-patient.component';
+import { NotesComponent } from './notes/notes.component';
+import { NewNoteComponent } from './new-note/new-note.component';
+import { UpdateNoteComponent } from './update-note/update-note.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { UpdatePatientComponent } from './update-patient/update-patient.componen
     NavbarComponent,
     PatientsComponent,
     NewPatientComponent,
-    UpdatePatientComponent
+    UpdatePatientComponent,
+    NotesComponent,
+    NewNoteComponent,
+    UpdateNoteComponent
   ],
   imports: [
     BrowserModule,

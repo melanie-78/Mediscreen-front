@@ -1,0 +1,32 @@
+<div class="container mt-2">
+  <div class="card">
+    <div class="card-header">Notes</div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th><th>Patient ID</th><th>Name</th><th>Observations</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let n of notes | async">
+            <td>{{n.id}}</td>
+            <td>{{n.patId}}</td>
+            <td>{{n.patName}}</td>
+            <td>{{n.observation}}</td>
+            <td>
+              <button (click)="handleUpdateNote(n)" class="btn btn-success">
+                <i class="bi bi-file"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <tr>
+        <button (click) = "handleAddNotes()" class="btn btn-success">
+          Add notes
+        </button>
+      </tr>
+    </div>
+  </div>
+</div>
