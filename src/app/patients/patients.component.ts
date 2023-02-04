@@ -62,4 +62,8 @@ export class PatientsComponent implements OnInit {
   handleConsultNotes(p: Patient) {
     this.router.navigateByUrl("/notes/" + p.id);
   }
+
+  handleConsultReport(p: Patient) {
+    this.router.navigateByUrl("/report/" + p.id);
+  }
 }

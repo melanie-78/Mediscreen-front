@@ -12,6 +12,7 @@ import { UpdatePatientComponent } from './update-patient/update-patient.componen
 import { NotesComponent } from './notes/notes.component';
 import { NewNoteComponent } from './new-note/new-note.component';
 import { UpdateNoteComponent } from './update-note/update-note.component';
+import { ReportComponent } from './report/report.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UpdateNoteComponent } from './update-note/update-note.component';
     UpdatePatientComponent,
     NotesComponent,
     NewNoteComponent,
-    UpdateNoteComponent
+    UpdateNoteComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

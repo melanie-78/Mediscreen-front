@@ -6,6 +6,7 @@ import {UpdatePatientComponent} from "./update-patient/update-patient.component"
 import {NotesComponent} from "./notes/notes.component";
 import {NewNoteComponent} from "./new-note/new-note.component";
 import {UpdateNoteComponent} from "./update-note/update-note.component";
+import {ReportComponent} from "./report/report.component";
 
 const routes: Routes = [
   {path : "patients", component: PatientsComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path : "update-patient/:id", component: UpdatePatientComponent},
   {path : "notes/:id", component: NotesComponent},
   {path : "new-note/:id", component: NewNoteComponent},
-  {path : "update-note/:id", component: UpdateNoteComponent}
+  {path : "update-note/:id", component: UpdateNoteComponent},
+  {path : "report/:id", component: ReportComponent}
 ];
 
 @NgModule({
