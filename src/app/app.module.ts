@@ -13,6 +13,7 @@ import { NotesComponent } from './notes/notes.component';
 import { NewNoteComponent } from './new-note/new-note.component';
 import { UpdateNoteComponent } from './update-note/update-note.component';
 import { ReportComponent } from './report/report.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ReportComponent } from './report/report.component';
     NotesComponent,
     NewNoteComponent,
     UpdateNoteComponent,
-    ReportComponent
+    ReportComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -7,8 +7,14 @@
         <div class="mb-3">
           <label class="form-label">Observation:</label>
           <input type="text" formControlName="observation" class="form-control">
+          <span class= "text-danger"
+                *ngIf="newNoteFormGroup.controls['observation'].touched
+                && newNoteFormGroup.controls['observation'].errors
+                && newNoteFormGroup.controls['observation'].errors!['required']">
+            Observation is required
+          </span>
         </div>
-        <button class="btn btn-success">Save</button>
+        <button class="btn btn-success" [disabled]="!newNoteFormGroup.valid">Save</button>
       </form>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {NoteService} from "../services/note.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Patient} from "../model/patient.model";
@@ -21,7 +21,7 @@ export class NewNoteComponent implements OnInit{
 
   ngOnInit(): void {
     this.newNoteFormGroup = this.fb.group({
-      observation : this.fb.control(null),
+      observation : this.fb.control(null, Validators.required),
     });
   }
 

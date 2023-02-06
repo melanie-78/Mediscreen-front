@@ -1,0 +1,16 @@
+h1{
+  color: darkblue;
+  font-weight: bold;
+}
+.container{
+  display: grid;
+  grid-template-columns: 300px 600px;
+}
+img{
+
+}
+
+.up{
+  color: darkblue;
+  font-weight: bold;
+}
